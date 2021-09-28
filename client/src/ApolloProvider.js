@@ -51,8 +51,8 @@ const cache = new InMemoryCache({
           },
         },
         getReceivedRequests: {
+          keyArgs: false,
           merge(existing, incoming, { args }) {
-            console.log(existing, incoming);
             if (!existing) return incoming;
             if (!incoming) return existing;
             if (args.offset === 0) return incoming;
@@ -63,6 +63,7 @@ const cache = new InMemoryCache({
           }
         },
         getSentRequests: {
+          keyArgs: false,
           merge(existing, incoming, { args }) {
             if (!existing) return incoming;
             if (!incoming) return existing;

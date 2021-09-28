@@ -55,6 +55,7 @@ const useStyles = makeStyles((theme) => ({
       background: "linear-gradient(45deg, #2196F3 30%, #FF8E53 90%)",
     },
     ".css-js-Avatar": {
+      color: "#fff",
       backgroundColor: red[500],
     },
     ".css-js-media": {

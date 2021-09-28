@@ -69,9 +69,9 @@ const FriendRequestProgress = forwardRef((props, ref) => {
   return (
     <Fragment >
       <RequestCard ref={ref}/>
-      <RequestCard ref={ref}/>
-      <RequestCard ref={ref}/>
-      <RequestCard ref={ref}/>
+      <RequestCard />
+      <RequestCard />
+      <RequestCard />
     </Fragment>
   )
 });

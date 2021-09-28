@@ -34,7 +34,7 @@ export default function ReceivedRequests() {
   const classes = useStyles();
   const [isLoadMore, setIsLoadMore] = useState(false);
   const { data, loading, fetchMore } = useGetReceivedRequests({
-    variables: { offset: 0, limit: 3 },
+    variables: { offset: 0, limit: 8 },
     fetchPolicy: "network-only",
     nextFetchPolicy: "cache-first",
   });
@@ -45,11 +45,11 @@ export default function ReceivedRequests() {
     hasNextPage,
     onLoadMore: () => {
       fetchMore({
-        variables: { offset: data?.getReceivedRequests?.offset + 1, limit: 5 },
+        variables: { offset: data?.getReceivedRequests?.offset + 1, limit: 4 },
       });
     }
   });
-  // console.log(data?.getReceivedRequests?.requests);
+
   return (
     <Fragment>
     <div className={classes.container} >

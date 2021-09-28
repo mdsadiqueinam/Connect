@@ -44,7 +44,7 @@ async function paginate(array, offset, limit, filter) {
   
   return {
     offset,
-    hasMore: offset < array.length,
+    hasMore: offset < array.length - 1,
     usersDetails
   }
 }
