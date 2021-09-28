@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "checkJs": false,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "target": "esnext",
+    "module": "esnext",
+    "baseUrl": ".",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+  },
+  "exclude": [
+    "dist",
+    "backend/node_modules",
+    "build",
+    ".vscode",
+    ".nuxt",
+    "coverage",
+    "jspm_packages",
+    "tmp",
+    "temp",
+    "bower_components",
+    ".npm",
+    ".yarn"
+  ],
+  "typeAcquisition": {
+    "enable": true
+  }
+}

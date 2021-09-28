@@ -1,0 +1,29 @@
+{
+  "name": "merng",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": "node index",
+    "start": "nodemon index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^3.1.2",
+    "apollo-server-core": "^3.3.0",
+    "apollo-server-express": "^3.3.0",
+    "aws-sdk": "^2.983.0",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "graphql": "^15.5.1",
+    "graphql-iso-date": "^3.6.1",
+    "graphql-upload": "^12.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.13.7",
+    "validator": "^13.6.0"
+  }
+}
