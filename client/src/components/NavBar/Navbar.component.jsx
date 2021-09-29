@@ -25,7 +25,9 @@ const UserAvatar = lazy(() => import("../Avatar/UserAvatar.component"));
 const IconButton = lazy(() => import("@material-ui/core/IconButton"));
 const Typography = lazy(() => import("@material-ui/core/Typography"));
 const ClippedDrawer = lazy(() => import("../SideBar/SideBar.component"));
-const NotificationsIcon = lazy(() => import("@material-ui/icons/Notifications"));
+const NotificationsIcon = lazy(() =>
+  import("@material-ui/icons/Notifications")
+);
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -107,6 +109,13 @@ export default function NavBar(props) {
       }
     : {};
 
+  const menuItemMyAccount = context.user
+    ? {
+        component: Link,
+        to: `/myaccount`,
+      }
+    : {};
+
   const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
@@ -118,8 +127,10 @@ export default function NavBar(props) {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose} {...menuItemProfile}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose} {...menuItemProfile}>
+        Profile
+      </MenuItem>
+      <MenuItem onClick={handleMenuClose} {...menuItemMyAccount}>My account</MenuItem>
       <Divider />
       <MenuItem onClick={logoutUser}>Logout</MenuItem>
     </Menu>
@@ -180,7 +191,7 @@ export default function NavBar(props) {
                 onClick={handleProfileMenuOpen}
                 color="inherit"
               >
-                {context.user && <UserAvatar userId={context.user.id}/>}
+                {context.user && <UserAvatar userId={context.user.id} />}
               </IconButton>
             </div>
           </Toolbar>

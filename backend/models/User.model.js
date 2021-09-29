@@ -69,7 +69,7 @@ UserSchema.methods.userUpdate = async function (data) {
   if(data.lastName !== null && data.lastName !== undefined) this.lastName = data.lastName;
   if(data.livesIn !== null && data.livesIn !== undefined) this.livesIn = data.livesIn;
   if(data.from !== null && data.from !== undefined) this.from = data.from;
-  this.save();
+  await this.save();
 }
 
 module.exports = model("User", UserSchema);

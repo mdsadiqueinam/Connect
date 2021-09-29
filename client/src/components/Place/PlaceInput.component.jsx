@@ -59,7 +59,6 @@ function PlaceInput() {
   const { setUserProfile } = useAuth();
   const searchOptions = { types: ["(cities)"] };
   const {
-    userId,
     content,
     contentName,
     displayContent,
@@ -97,7 +96,7 @@ function PlaceInput() {
   };
 
   const handleSubmit = () => {
-    updateProfile({ variables: { userId, ...value } });
+    updateProfile({ variables: { ...value } });
   };
 
   return (

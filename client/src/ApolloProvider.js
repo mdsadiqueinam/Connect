@@ -26,9 +26,10 @@ const cache = new InMemoryCache({
       fields: {
         getTimeline: {
           keyArgs: ["userId", "queryType"],
-          merge(existing, incoming) {
+          merge(existing, incoming, { args }) {
             if (!existing) return incoming;
             if (!incoming) return existing;
+            if (args.offset === 0) return incoming;
             return {
               ...incoming,
               posts: [...existing.posts, ...incoming.posts],

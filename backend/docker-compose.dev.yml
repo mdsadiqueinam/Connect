@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: connect-backend-dev
+    image: connect-backend-dev
+    build:
+      context: .
+      target: development
+    ports:
+      - 4000:4000

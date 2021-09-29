@@ -13,7 +13,6 @@ export default function NameInput() {
   const classes = useAboutClasses();
   const { setUserProfile } = useAuth();
   const {
-    userId,
     firstName,
     lastName,
     displayContent,
@@ -43,7 +42,7 @@ export default function NameInput() {
   };
 
   function onSubmit() {
-    updateProfile({ variables: { userId, ...values } });
+    updateProfile({ variables: { ...values } });
   }
 
   return (

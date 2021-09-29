@@ -15,7 +15,6 @@ export default function ContentInput({ inputType, selectValues }) {
   const classes = useAboutClasses();
   const { setUserProfile } = useAuth();
   const {
-    userId,
     content,
     contentName,
     displayContent,
@@ -44,7 +43,7 @@ export default function ContentInput({ inputType, selectValues }) {
   };
 
   function onSubmit() {
-    updateProfile({ variables: { userId, ...values } });
+    updateProfile({ variables: { ...values } });
   }
 
   const label = contentName[0].toUpperCase() + contentName.slice(1);

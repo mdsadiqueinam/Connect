@@ -21,6 +21,7 @@ export default function Feeds({ queryType, userId }) {
     variables: { queryType, userId, offset: 0, limit: 10 },
     onError: (error) => handleErrors(error, `[${queryType}]: At Feeds:`),
     fetchPolicy: "network-only",
+    nextFetchPolicy: "cache-first",
     notifyOnNetworkStatusChange: true,
   });
   var posts = [];

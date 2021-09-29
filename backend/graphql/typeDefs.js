@@ -91,7 +91,6 @@ module.exports = gql`
     }
 
     input UpdateUserProfileInput {
-        userId: ID!
         firstName: String
         lastName: String
         description: String
@@ -102,19 +101,12 @@ module.exports = gql`
         coverPicture: Upload
     }
 
-    input UpdatePasswordInput {
-        oldPassword: String!
-        newPassword: String!
-        confirmNewPassword: String!
-    }
-
     type Query {
         getPosts: [Post]
         getPost(postId: ID!): Post
         getUser(userId: ID!): User
         getTimeline(userId: ID!, queryType: String!, offset: Int!, limit: Int!): Timeline
         getUserProfile(userId: ID, username: String): User
-        getUserPosts(userId: ID!): [Post]
         getFriends(userId: ID!, offset: Int!, limit: Int!, filter: String!): FriendsListDetails
         getReceivedRequests(offset: Int!, limit: Int!): FriendRequests
         getSentRequests(offset: Int!, limit: Int!): FriendRequests
@@ -125,7 +117,8 @@ module.exports = gql`
         login(usernameOremail: String!, password: String!): User!
         logout: String!
         updateUserProfile(updateUserProfileInput: UpdateUserProfileInput): User!
-        updatePassword(userId: ID!, updatePasswordInput: UpdatePasswordInput): String!
+        updateUserDetails(email: String, username: String, password: String!): User!
+        updatePassword(oldPassword: String!, newPassword: String!, confirmNewPassword: String!): String!
         deleteUser(userId: ID!, password: String! ): String!
         createPost(body: String, image: Upload): Post!
         updatePost(postId: ID!, body: String, image: String): Post!

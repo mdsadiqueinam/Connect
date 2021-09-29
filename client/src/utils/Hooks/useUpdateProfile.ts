@@ -3,7 +3,6 @@ import handleErrors from "config/handleErrors";
 
 const UPDATE_USER_PROFILE_MUTATION = gql`
   mutation updateUserProfile(
-    $userId: ID!
     $firstName: String
     $lastName: String
     $description: String
@@ -15,7 +14,6 @@ const UPDATE_USER_PROFILE_MUTATION = gql`
   ) {
     updateUserProfile(
       updateUserProfileInput: {
-        userId: $userId
         firstName: $firstName
         lastName: $lastName
         description: $description

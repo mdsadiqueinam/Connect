@@ -10,7 +10,6 @@ import {
 } from "@material-ui/core";
 import "components/LinearGradientProgress/style.css";
 
-const width = 213;
 
 const useStyles = makeStyles((theme) => ({
   root: {
