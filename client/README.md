@@ -41,8 +41,50 @@ The home page is available only for logged in `users`.
 
 The home also contains a `Create Post Card` which contains a button on click which will open a `Create Post` modal, where the `user` can create a new `post`.
 
-### `Post`
+### `Posts`
 
 The `user` can write anything on his post and can also add a `photo` to the post.
 
 The `user` can also like the `post` or comment on the `post`.
+
+### `Profile page`
+
+The `profile page` content two section `header` and `body`.
+
+* #### `Header`
+
+  The `header` contains the `profile picture`, `Cover picture` and the `profile name` of the `user`.
+
+  * If the `user` is the `current user` then the  `header` also contains a `edit profile` buttons
+  like `edit profile picture` and `edit cover picture`.
+
+  * If the `user` is not `current user` then the `header` will show a `send request` button if request not sent, or `cancel request` button if request already sent, or `accept request` and `reject request`  button if request received, or `unfriend` and `send message` button if friends.
+
+* #### `Body`
+
+  The `body` contains the 4 tabs `Posts`, `About`, `Friends` and `Photos`.
+
+  * `Posts:` 
+  
+    1. The post tab is same as the home page only difference is that it only query for user's posts from database
+
+  * `About:` 
+  
+    1. The `about` tab contains the personal details of the user like name, description, livesin, from, and relationship status and if the `user` is the `current user` then every section has menu button where the user can delete/edit the details.
+
+  * `Friends:`
+  
+    1. The `friends` tab contains the list of `friends` of the `user` with a pagination limit of 10 on every load.
+    2. It also contains a `search` bar where the user can search for any `user` by `name/username`.
+
+  * `Photos:` `This section is yet to implement`
+  
+    1. The `photos` tab contains the list of `photos` of the `user`
+
+### `Side Bar`
+
+The `side bar` contains many options like `feeds`, `chat`, `friend requests` and more.
+
+### `Friend Requests Page`
+
+This page contains two tab one for received requests and another for sent requests, with their corresponding function and pagination.
