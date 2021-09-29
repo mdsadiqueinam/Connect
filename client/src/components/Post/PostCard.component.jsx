@@ -14,6 +14,7 @@ const PostContent = lazy(() => import("./PostBody.component"));
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
+    borderRadius: "10px",
   },
   
 }));

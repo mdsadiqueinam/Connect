@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
   card: {
     width: "100%",
     maxWidth: 600,
+    borderRadius: "10px",
   },
   button: {
     width: "100%",
