@@ -40,7 +40,7 @@ function Requests() {
           <TabPanel value={value} index={0}>
             <ReceivedRequests />
           </TabPanel>
-          <TabPanel value={value} index={1} className={`css-js-container`}>
+          <TabPanel value={value} index={1}>
             <SentRequests />
           </TabPanel>
         </Suspense>

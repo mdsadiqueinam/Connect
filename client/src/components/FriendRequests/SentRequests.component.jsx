@@ -1,10 +1,10 @@
 import { lazy, Suspense, useState, Fragment } from "react";
-import { useGetSentRequests } from "utils/Hooks/useGetFriendRequests"
-import { makeStyles } from "@material-ui/styles"
-import useInfiniteScroll from "react-infinite-scroll-hook"
+import { useGetSentRequests } from "utils/Hooks/useGetFriendRequests";
+import { makeStyles } from "@material-ui/styles";
+import useInfiniteScroll from "react-infinite-scroll-hook";
 import FriendRequestProgress from "./FriendRequestProgress";
 
-const Button = lazy(() => import("@material-ui/core/Button"))
+const Button = lazy(() => import("@material-ui/core/Button"));
 const RequestCard = lazy(() => import("./RequestCard.component"));
 const FastForward = lazy(() => import("@material-ui/icons/FastForward"));
 
@@ -19,16 +19,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function SentRequestsList({ entries }) {
+function SentRequestsList({ entries, loading }) {
   return (
     <Fragment>
-      { entries && entries.length > 0 ? entries.map(entry => (
-        <RequestCard key={entry.id} user={entry} />
-      )) : (<h2>No Sent Requests</h2>)}
+      {entries && entries.length > 0 ? (
+        entries.map((entry) => (
+          <RequestCard key={entry.id} user={entry} button2Action="cancel" />
+        ))
+      ) : (
+        !loading && <h2>No Sent Requests</h2>
+      )}
     </Fragment>
   );
 }
-
 
 export default function SentRequests() {
   const classes = useStyles();
@@ -47,18 +50,29 @@ export default function SentRequests() {
       fetchMore({
         variables: { offset: data?.getSentRequests?.offset + 1, limit: 4 },
       });
-    }
+    },
   });
 
   return (
     <Fragment>
-    <div className={classes.container} >
-      <Suspense fallback={<FriendRequestProgress />}>
-        <SentRequestsList entries={data?.getSentRequests?.requests} />
-        { (loading || hasNextPage) && <FriendRequestProgress ref={sentryRef}/> }
-      </Suspense>
-    </div>
-    {!isLoadMore && <Button fullWidth color="primary" onClick={() => setIsLoadMore(true)} endIcon={<FastForward color="primary"/>}>Load more</Button>}
+      <div className={classes.container}>
+        <Suspense fallback={<FriendRequestProgress />}>
+          <SentRequestsList entries={data?.getSentRequests?.requests} loading={loading} />
+          {(loading || hasNextPage) && (
+            <FriendRequestProgress ref={sentryRef} />
+          )}
+        </Suspense>
+      </div>
+      {!isLoadMore && (
+        <Button
+          fullWidth
+          color="primary"
+          onClick={() => setIsLoadMore(true)}
+          endIcon={<FastForward color="primary" />}
+        >
+          Load more
+        </Button>
+      )}
     </Fragment>
-  )
+  );
 }
