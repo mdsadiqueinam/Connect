@@ -5,6 +5,7 @@ import { TabPanel, a11yProps } from "components/Tab/TabPanel.component";
 const Tab = lazy(() => import("@material-ui/core/Tab"));
 const Tabs = lazy(() => import("@material-ui/core/Tabs"));
 const AppBar = lazy(() => import("@material-ui/core/AppBar"));
+const SentRequests = lazy(() => import("./SentRequests.component"));
 const ReceivedRequests = lazy(() => import("./ReceivedRequests.component"));
 
 const useStyles = makeStyles((theme) => ({
@@ -40,7 +41,7 @@ function Requests() {
             <ReceivedRequests />
           </TabPanel>
           <TabPanel value={value} index={1} className={`css-js-container`}>
-            Sent Requests
+            <SentRequests />
           </TabPanel>
         </Suspense>
       </Suspense>

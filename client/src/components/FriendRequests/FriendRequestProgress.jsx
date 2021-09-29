@@ -14,9 +14,14 @@ const width = 213;
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: width,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    width: theme.spacing(26.63),
+    height: theme.spacing(46),
     boxSizing: "border-box",
     margin: theme.spacing(3, 2),
+    borderRadius: "10px",
   },
   media: {
     height: theme.spacing(25),
@@ -40,13 +45,15 @@ const useStyles = makeStyles((theme) => ({
 const RequestCard = forwardRef((props, ref) => {
   const classes = useStyles();
   return (
-    <Card raised className={classes.root} ref={ref} >
-      <CardMedia>
-        <LinearGradientProgress className={classes.media} />
-      </CardMedia>
-      <CardContent>
-        <LinearGradientProgress className={classes.content} />
-      </CardContent>
+    <Card raised className={classes.root} ref={ref}>
+      <div>
+        <CardMedia>
+          <LinearGradientProgress className={classes.media} />
+        </CardMedia>
+        <CardContent>
+          <LinearGradientProgress className={classes.content} />
+        </CardContent>
+      </div>
       <CardActions className={classes.action} disableSpacing>
         <Button
           variant="contained"
@@ -67,13 +74,13 @@ const RequestCard = forwardRef((props, ref) => {
 
 const FriendRequestProgress = forwardRef((props, ref) => {
   return (
-    <Fragment >
-      <RequestCard ref={ref}/>
+    <Fragment>
+      <RequestCard ref={ref} />
       <RequestCard />
       <RequestCard />
       <RequestCard />
     </Fragment>
-  )
+  );
 });
 
 export default FriendRequestProgress;

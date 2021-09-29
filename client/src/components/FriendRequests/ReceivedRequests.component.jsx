@@ -1,10 +1,10 @@
 import { lazy, Suspense, useState, Fragment } from "react";
-import { useGetReceivedRequests } from "utils/Hooks/useGetFriendRequests"
-import { makeStyles } from "@material-ui/styles"
-import useInfiniteScroll from "react-infinite-scroll-hook"
+import { useGetReceivedRequests } from "utils/Hooks/useGetFriendRequests";
+import { makeStyles } from "@material-ui/styles";
+import useInfiniteScroll from "react-infinite-scroll-hook";
 import FriendRequestProgress from "./FriendRequestProgress";
 
-const Button = lazy(() => import("@material-ui/core/Button"))
+const Button = lazy(() => import("@material-ui/core/Button"));
 const RequestCard = lazy(() => import("./RequestCard.component"));
 const FastForward = lazy(() => import("@material-ui/icons/FastForward"));
 
@@ -20,10 +20,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function ReceivedRequestsList({ entries }) {
+  
   return (
     <Fragment>
       { entries && entries.map(entry => (
-        <RequestCard key={entry.id} user={entry} />
+        <RequestCard key={entry.id} user={entry} button1Action="accept" button2Action="reject" />
       ))}
     </Fragment>
   );

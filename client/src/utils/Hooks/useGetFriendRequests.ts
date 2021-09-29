@@ -1,7 +1,7 @@
 import { useQuery, gql } from "@apollo/client";
 import handleErrors from "config/handleErrors";
 
-const GET_RECEIVED_FRIEND_REQUESTS = gql`
+export const GET_RECEIVED_FRIEND_REQUESTS = gql`
   query getReceivedRequests($offset: Int!, $limit: Int!) {
     getReceivedRequests(offset: $offset, limit: $limit) {
       offset
@@ -17,7 +17,7 @@ const GET_RECEIVED_FRIEND_REQUESTS = gql`
   }
 `;
 
-const GET_SENT_FRIEND_REQUESTS = gql`
+export const GET_SENT_FRIEND_REQUESTS = gql`
   query getSentRequests($offset: Int!, $limit: Int!) {
     getSentRequests(offset: $offset, limit: $limit) {
       offset

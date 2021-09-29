@@ -79,7 +79,6 @@ module.exports = {
       
       try {
         const details = await paginate(user.receivedFriendRequests, offset, limit, "");
-        console.log(details);
         return {
           offset: details.offset,
           hasMore: details.hasMore,
