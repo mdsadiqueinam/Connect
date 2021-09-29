@@ -22,7 +22,7 @@ In this platform, user can share their posts, photos, videos and other content w
 
 1. ##### React: [v17.0.2](https://reactjs.org/docs/getting-started.html)
 
-2. ##### Material-ui: [v4.12.3](https://https://v4.mui.com/)
+2. ##### Material-ui-core: [v4.12.3](https://https://v4.mui.com/)
    
 3. ##### Material-ui-icons: [v4.11.2](https://https://v4.mui.com/)
    
