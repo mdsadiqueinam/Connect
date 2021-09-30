@@ -13,6 +13,10 @@ const useStyles = makeStyles((theme) => ({
       alignItems: "center",
       justifyContent: "center",
     },
+    ".css-js-page-container": {
+      marginTop: theme.spacing(10),
+      padding: 0,
+    },
     ".css-js-page": {
       marginTop: theme.spacing(10),
     },
