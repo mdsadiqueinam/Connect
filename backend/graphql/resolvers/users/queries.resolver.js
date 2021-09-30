@@ -2,8 +2,6 @@ const User = require("../../../models/User.model");
 const checkAuth = require("../../../utils/check-auth");
 const { UserInputError } = require("apollo-server");
 
-
-
 module.exports = {
   Query: {
     async getUser(_, { userId }, context) {

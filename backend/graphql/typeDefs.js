@@ -110,6 +110,8 @@ module.exports = gql`
         getFriends(userId: ID!, offset: Int!, limit: Int!, filter: String!): FriendsListDetails
         getReceivedRequests(offset: Int!, limit: Int!): FriendRequests
         getSentRequests(offset: Int!, limit: Int!): FriendRequests
+        checkUsername(username: String!): Boolean!
+        checkEmail(email: String!): Boolean!
     }
 
     type Mutation {
@@ -117,7 +119,7 @@ module.exports = gql`
         login(usernameOremail: String!, password: String!): User!
         logout: String!
         updateUserProfile(updateUserProfileInput: UpdateUserProfileInput): User!
-        updateUserDetails(email: String, username: String, password: String!): User!
+        updateUserSettings(email: String, username: String, password: String!): User!
         updatePassword(oldPassword: String!, newPassword: String!, confirmNewPassword: String!): String!
         deleteUser(userId: ID!, password: String! ): String!
         createPost(body: String, image: Upload): Post!

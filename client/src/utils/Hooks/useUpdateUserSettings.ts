@@ -1,9 +1,9 @@
 import { useMutation, gql } from "@apollo/client";
 import handleErrors from "config/handleErrors";
 
-const UPDATE_USER_DETAILS = gql`
-  mutation updateUserDetails($email: String, $username: String, $password: String!) {
-    updateUserDetails(email: $email, username: $username, password: $password) {
+const UPDATE_USER_Settings = gql`
+  mutation updateUserSettings($email: String, $username: String, $password: String!) {
+    updateUserSettings(email: $email, username: $username, password: $password) {
       id
       username
       email
@@ -23,11 +23,11 @@ const UPDATE_USER_DETAILS = gql`
   }
 `;
 
-function useUpdateUserDetails(options: object, errorLocation: string) {
-  return useMutation(UPDATE_USER_DETAILS, {
+function useUpdateUserSettings(options: object, errorLocation: string) {
+  return useMutation(UPDATE_USER_Settings, {
     ...options,
     onError: (error) => handleErrors(error, errorLocation),
   });
 }
 
-export default useUpdateUserDetails;
+export default useUpdateUserSettings;
