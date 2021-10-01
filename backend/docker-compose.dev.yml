@@ -4,8 +4,10 @@ services:
   app:
     container_name: connect-backend-dev
     image: connect-backend-dev
+    volumes:
+      - .:/app
     build:
-      context: .
+      context: ./
       target: development
     ports:
       - 4000:4000

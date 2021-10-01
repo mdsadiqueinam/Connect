@@ -4,7 +4,6 @@ const { graphqlUploadExpress } = require("graphql-upload");
 const mongoose = require("mongoose");
 const express = require("express");
 const http = require("http");
-const os = require("os");
 
 const typeDefs = require("./graphql/typeDefs");
 const resolvers = require("./graphql/resolvers");
@@ -12,8 +11,6 @@ require("dotenv").config();
 
 async function startApolloServer() {
 
-  const networkInterfaces = os.networkInterfaces();
-  const localHost = networkInterfaces.wlp1s0[0].address;
   const port = process.env.PORT || 4000;
 
   const uri = process.env.ATLAS_URI;
@@ -56,8 +53,8 @@ async function startApolloServer() {
   });
 
   // Modified server startup
-  await new Promise((resolve) => httpServer.listen({ port, hostname: localHost }, resolve));
-  console.log(`🚀 Server ready at http://${localHost}:4000${server.graphqlPath}`);
+  await new Promise((resolve) => httpServer.listen({ port }, resolve));
+  console.log(`🚀 Server ready at http://localHost:4000${server.graphqlPath}`);
 }
 
 startApolloServer();
